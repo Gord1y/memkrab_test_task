@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { Cell, useAppContext } from '../context/AppContext'
 
+import { Edit } from './Edit'
+
 interface TableCellProps {
   cellData: Cell
   rowIndex: number
@@ -38,12 +40,11 @@ const TableCell: React.FC<TableCellProps> = ({
 
   return (
     <td
-      onClick={onIncreaseValue}
       onMouseEnter={onHover}
       className={cellData.highlighted ? 'highlighted' : ''}
     >
       {editing ? (
-        <div>
+        <div className='block'>
           <input
             type='number'
             value={inputValue}
@@ -53,9 +54,11 @@ const TableCell: React.FC<TableCellProps> = ({
           />
         </div>
       ) : (
-        <div>
-          <span>{cellData.amount}%</span>
-          <button onClick={handleEdit}>Edit</button>
+        <div className='block'>
+          <p onClick={onIncreaseValue}>{cellData.amount}%</p>
+          <button onClick={handleEdit}>
+            <Edit />
+          </button>
         </div>
       )}
     </td>

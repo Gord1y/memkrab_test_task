@@ -80,22 +80,26 @@ const Table: React.FC = () => {
   }
 
   return (
-    <div>
-      <div>
-        M:{' '}
-        <input
-          type='number'
-          value={M}
-          onChange={e => setM(parseInt(e.target.value))}
-        />
-        N:{' '}
-        <input
-          type='number'
-          value={N}
-          onChange={e => setN(parseInt(e.target.value))}
-        />
+    <>
+      <div className='inputs'>
+        <div className='input'>
+          Rows:
+          <input
+            type='number'
+            value={M}
+            onChange={e => setM(parseInt(e.target.value))}
+          />
+        </div>
+        <div className='input'>
+          Columns:
+          <input
+            type='number'
+            value={N}
+            onChange={e => setN(parseInt(e.target.value))}
+          />
+        </div>
+        <button onClick={addRow}>Add Row</button>
       </div>
-      <button onClick={addRow}>Add Row</button>
       <table>
         <tbody>
           {data.map((row, rowIndex) => (
@@ -114,7 +118,9 @@ const Table: React.FC = () => {
               ))}
               <td>Line sum: {calculateRowSum(row)}</td>
               <td>
-                <button onClick={() => removeRow(rowIndex)}>Remove</button>
+                <button className='remove' onClick={() => removeRow(rowIndex)}>
+                  Remove
+                </button>
               </td>
             </tr>
           ))}
@@ -129,7 +135,7 @@ const Table: React.FC = () => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </>
   )
 }
 

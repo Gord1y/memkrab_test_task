@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import 'normalize.css'
 
 import './styles.scss'
 import { AppProvider } from '@/context/AppContext'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Montserrat({
+  subsets: ['latin'],
+  style: 'normal',
+  weight: ['400', '500', '600', '700']
+})
 
 export const metadata: Metadata = {
   title: 'MemKrab Test Task',
