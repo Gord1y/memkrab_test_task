@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import 'normalize.css'
 
 import './styles.scss'
 import { AppProvider } from '@/context/AppContext'
